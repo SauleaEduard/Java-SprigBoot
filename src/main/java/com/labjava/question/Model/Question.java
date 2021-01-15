@@ -10,7 +10,8 @@ public class Question {
     private String titlu;
     private String desc;
 
-    public Question(long u_id, String titlu, String desc) {
+    public Question(long id,long u_id, String titlu, String desc) {
+        this.id=id;
         this.u_id = u_id;
         this.titlu = titlu;
         this.desc = desc;

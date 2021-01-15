@@ -7,12 +7,22 @@ import javax.validation.constraints.Size;
 public class QuestionPostDto {
     @NotNull
     private int id;
+    @NotNull
+    private int u_id;
     @NotBlank
     @Size(max=100)
     private String titlu;
     @Size(max=255)
     @NotNull
     private String desc;
+
+    public int getU_id() {
+        return u_id;
+    }
+
+    public void setU_id(int u_id) {
+        this.u_id = u_id;
+    }
 
     public QuestionPostDto(@NotNull int id,
                            @NotBlank

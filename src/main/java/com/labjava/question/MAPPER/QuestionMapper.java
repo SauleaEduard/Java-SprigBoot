@@ -8,11 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class QuestionMapper {
     public Question questionmapper(QuestionDto questionDto){
-        return new Question(questionDto.getU_id(),questionDto.getTitlu(),questionDto.getDesc());
+        return new Question(questionDto.getId(),questionDto.getU_id(),questionDto.getTitlu(),questionDto.getDesc());
     }
 
     public Question postQuestionLaQuestion(QuestionPostDto questionPostDto){
         return new Question(questionPostDto.getId(),
+                questionPostDto.getU_id(),
                 questionPostDto.getTitlu(),
                 questionPostDto.getDesc());
     }

@@ -24,4 +24,12 @@ public class UserService {
         }
         return userRepo.createUser(user);
     }
+
+    public User getUser(long id) {
+        Optional<User> userOptional = userRepo.getUser(id);
+        if(!userOptional.isPresent())
+            throw new RuntimeException("Null User");
+        else
+            return userOptional.get();
+    }
 }

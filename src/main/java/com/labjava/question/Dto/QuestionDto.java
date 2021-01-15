@@ -6,6 +6,8 @@ import javax.validation.constraints.Size;
 
 public class QuestionDto {
     @NotNull
+    private long id;
+    @NotNull
     private long u_id;
     @NotBlank
     @Size(max=100)
@@ -13,6 +15,14 @@ public class QuestionDto {
     @Size(max=255)
     @NotNull
     private String desc;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public QuestionDto() {
     }

@@ -21,7 +21,7 @@ public class QuestionService {
 
     public Question createQuestion(Question question){
         Optional<Question> questionU_id = questionRepo
-                .getByTitlu(question.getTitlu());
+                .getById(question.getId());
         if(questionU_id.isPresent()){
             throw new DuplicateTitle();
         }

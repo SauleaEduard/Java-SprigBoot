@@ -34,18 +34,17 @@ public class QuestionRepo {
         question.setId(generatedKeyHolder.getKey().longValue());
         return question;
     }
-    public Optional<Question> getByTitlu(String titlu) {
-        String sql = "select * from question q where q.titlu = ?";
+    public Optional<Question> getById(long id) {
+        String sql = "select * from question q where q.id = ?";
         RowMapper<Question> rowMapper = (resultSet, rowNum) -> {
             Question question = new Question();
-            question.setId(resultSet.getInt("id"));
-            question.setU_id(resultSet.getInt("u_id"));
+            question.setId(resultSet.getLong("id"));
             question.setTitlu(resultSet.getString("titlu"));
-            question.setTitlu(resultSet.getString("desc"));
+            question.setDesc(resultSet.getString("desc"));
             return question;
         };
-        List<Question> result = jdbcTemplate.query(sql,rowMapper,titlu);
-        if(null != result && !result.isEmpty()){
+        List<Question> result = jdbcTemplate.query(sql,rowMapper,id);
+        if(result !=null && !result.isEmpty()){
             return Optional.of(result.get(0));
         } else {
             return Optional.empty();
